@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Security Headers (Copied from index.html) -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self'; 
+        script-src 'self' 'unsafe-inline'; 
+        style-src 'self' 'unsafe-inline'; 
+        img-src 'self' data: https:; 
+        font-src 'self' data:;
+        object-src 'none';
+        frame-ancestors 'self';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <title>About Us - Kritivex</title>
+    
+    <style>
+        /* --- Root Variables (from index.html) --- */
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-color: #333;
+            --bg-light: #f5f7fa;
+            --bg-dark: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fdfdfd; /* Lighter background for content page */
+        }
+
+        /* --- Header & Navigation (from index.html) --- */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding-bottom: 5px; /* Space for border */
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* --- NEW: Active link style for 'About' page --- */
+        .nav-links a.active {
+            font-weight: bold;
+            border-bottom: 2px solid white;
+        }
+
+        /* --- NEW: About Page Hero Section --- */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 150px 2rem 80px; /* Shorter than index hero */
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* --- NEW: Main Content Area --- */
+        .about-page-content {
+            padding: 80px 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .content-block {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-block p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* --- NEW: Mission/Vision Grid --- */
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --- NEW: Team Section (re-using founder-info style) --- */
+        .team-section {
+            text-align: center;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Re-using style from index.html */
+        .founder-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            width: 350px;
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .founder-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .founder-info p {
+            font-size: 1rem;
+        }
+
+        /* --- Footer (from index.html) --- */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 40px; /* Space above footer */
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            .mission-vision-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">KRITIVEX</div>
+            <ul class="nav-links">
+                <!-- IMPORTANT: Updated links for multi-page site -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <h1>About Kritivex</h1>
+                <p>Our Mission, Our Vision, and Our Story.</p>
+            </div>
+        </section>
+
+        <!-- Page Content -->
+        <section class="about-page-content">
+
+            <!-- Our Story Block -->
+            <div class="content-block">
+                <h2 class="section-title">Our Story</h2>
+                <p>Kritivex was born from a simple yet powerful idea: that technology should be a force for innovation, accessible to everyone. Founded by Mohit Raj, a passionate technologist and innovator, Kritivex began as a vision to bridge the gap between complex digital solutions and the everyday needs of businesses.</p>
+                <p>We saw a world full of data and potential, but a gap in turning that potential into reality. We started Kritivex to build that bridge, creating AI-powered projects, modern applications, and digital strategies that aren't just functional, but transformative.</p>
+            </div>
+
+            <!-- Mission & Vision Block -->
+            <div class="content-block">
+                <div class="mission-vision-grid">
+                    <div class="info-card">
+                        <h3>Our Mission</h3>
+                        <p>To empower businesses of all sizes by providing cutting-edge, innovative, and accessible digital solutions that drive growth and efficiency.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Our Vision</h3>
+                        <p>To be a leading force in digital innovation, making advanced technology (like AI and custom app development) a standard, reliable tool for progress.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="team-section content-block">
+                <h2 class="section-title">Meet the Team</h2>
+                <div class="team-grid">
+                    <!-- Your Card (from index.html) -->
+                    <div class="founder-info">
+                        <h3>Mohit Raj</h3>
+                        <p><strong>Founder & CEO, Kritivex</strong></p>
+                        <p>With a passion for technology and innovation, Mohit Raj founded Kritivex to empower businesses through cutting-edge digital solutions. His vision is to make advanced technology accessible to businesses of all sizes.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Kritivex. All Rights Reserved.</p>
+        <p>Founded by Mohit Raj | Innovating Digital Solutions</p>
+    </footer>
+
+    <!-- No JavaScript needed for this static page -->
+
+</body>
+</html>
