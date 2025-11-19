@@ -1,1 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Kritivex – AI • Apps • Digital Solutions</title>
+    <meta name="description" content="Kritivex builds AI-powered education platforms, mobile apps, and digital solutions for businesses and students." />
+    <link rel="canonical" href="https://kritivex.in/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kritivex – AI • Apps • Digital Solutions" />
+    <meta property="og:description" content="AI-powered education platforms and modern digital solutions." />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --dark: #2d3748;
+            --light-bg: #f8faff;
+            --text: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--light-bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Header -------------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(45, 55, 72, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #a3bffa, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+        .hamburger span {
+            width: 26px;
+            height: 3px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        /* Hero ----------------------------------------- */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 2rem 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            border-radius: 40px;
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections ------------------------------------ */
+        section { padding: 100px 2rem; }
+        .title {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+        }
+
+        /* Contact ------------------------------------- */
+        .contact {
+            background: var(--dark);
+            color: white;
+        }
+        .contact-form {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            color: black;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            background: #f7fafc;
+            font-size: 1rem;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Footer -------------------------------------- */
+        footer {
+            background: #1a202c;
+            color: #cbd5e0;
+            text-align: center;
+            padding: 2.5rem;
+        }
+
+        /* Responsive ----------------------------------- */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 3rem;
+                transition: 0.4s;
+                gap: 2rem;
+            }
+            .nav-links.active { left: 0; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">KRITIVEX</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Welcome to KRITIVEX</h1>
+            <p>Transforming Ideas into Digital Reality with AI Solutions & Modern App Development.</p>
+            <a href="#contact" class="cta-btn">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <h2 class="title">Our Expertise</h2>
+        <div class="grid">
+            <div class="card">🤖<h3>AI Solutions</h3><p>Custom ML models, automation, and NLP systems.</p></div>
+            <div class="card">📱<h3>App Development</h3><p>Android, iOS, and full-stack app solutions.</p></div>
+            <div class="card">💻<h3>Digital Strategy</h3><p>Cloud, analytics, and automation consulting.</p></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <h2 class="title" style="color: white;">Let's Connect</h2>
+
+        <form class="contact-form" onsubmit="sendForm(event)">
+            <input type="text" name="website_honey" style="display: none;" />
+
+            <input type="text" id="name" placeholder="Your Name" required />
+            <input type="email" id="email" placeholder="Your Email" required />
+            <textarea id="message" rows="4" placeholder="Message" required></textarea>
+
+            <div id="formMsg" style="display:none;margin-bottom:1rem;padding:12px;border-radius:10px;font-weight:600;"></div>
+
+            <button class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Kritivex. All Rights Reserved.</p>
+        <p style="font-size: 0.9rem; color: #718096;">Designed with ❤️ by Mohit Raj</p>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Form Handler
+        function sendForm(e) {
+            e.preventDefault();
+            const box = document.getElementById("formMsg");
+
+            box.style.display = "block";
+            box.style.background = "#d1fae5";
+            box.style.color = "#065f46";
+            box.textContent = "Thank you! We will contact you soon.";
+
+            setTimeout(() => box.style.display = "none", 4000);
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
 
