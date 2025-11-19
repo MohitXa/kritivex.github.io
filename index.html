@@ -1,243 +1,743 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kritivex Technologies — AI • Apps • EdTech</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kritivex Technologies - Empowering schools and students with AI, App Development, and EdTech solutions. founded by Mohit Raj." />
+    <meta name="keywords" content="Kritivex, EdTech, AI, App Development, Mohit Raj, Startup India, School ERP" />
+    <meta name="author" content="Mohit Raj" />
+    
+    <title>Kritivex - Future of EdTech & AI</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
 
-  <style>
-    :root {
-      --primary: #6a5af9;
-      --secondary: #8f57ff;
-      --dark: #0e0e1a;
-      --text-light: #d4d4d4;
-      --white: #ffffff;
-      --card-bg: rgba(255, 255, 255, 0.08);
-      --glass: rgba(255, 255, 255, 0.05);
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at 10% 20%, #6a5af9 0%, #0a0a16 50%) fixed,
-                  radial-gradient(circle at 90% 80%, #8f57ff 0%, #0a0a16 60%) fixed;
-      color: var(--white);
-      overflow-x: hidden;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(10, 10, 20, 0.75);
-      backdrop-filter: blur(12px);
-      padding: 16px 0;
-    }
-    nav {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-    .logo { font-size: 1.6rem; font-weight: 700; }
-    .nav-links { display: flex; gap: 24px; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-light);
-      font-weight: 500;
-      transition: 0.3s;
-    }
-    .nav-links a:hover { color: var(--white); }
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-dark: #030712;
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #ec4899;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
 
-    /* Hero */
-    .hero {
-      padding: 180px 20px 120px;
-      text-align: center;
-      max-width: 850px;
-      margin: auto;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #eaeaea;
-      margin-bottom: 30px;
-    }
-    .btn-primary {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      padding: 14px 26px;
-      border-radius: 10px;
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      box-shadow: 0 6px 20px rgba(106, 90, 249, 0.4);
-      transition: 0.3s;
-    }
-    .btn-primary:hover { transform: translateY(-3px); }
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Sections */
-    section { padding: 100px 20px; max-width: 1200px; margin:auto; }
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Header won't cover titles */
+        }
 
-    /* Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: var(--card-bg);
-      padding: 28px;
-      border-radius: 14px;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: 0.3s;
-    }
-    .card:hover { transform: translateY(-6px); }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+            /* Mesh Gradient Background */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
 
-    /* Contact */
-    .contact-box {
-      background: var(--glass);
-      padding: 30px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(12px);
-      max-width: 500px;
-      margin: auto;
-    }
-    .contact-details {
-      max-width: 500px;
-      margin: 16px auto 0;
-      text-align: center;
-      color: var(--text-light);
-    }
-    .contact-details a { color: var(--white); text-decoration: none; font-weight:600 }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 10px;
-      color: var(--white);
-    }
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
 
-    footer {
-      padding: 30px;
-      text-align: center;
-      color: #c8c8c8;
-      margin-top: 50px;
-    }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* Responsive tweaks */
-    @media (max-width: 700px) {
-      .hero { padding-top: 140px }
-      .nav-links { display: none }
-      section { padding: 60px 16px }
-    }
-  </style>
+        /* Logo Styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .site-logo {
+            height: 45px; /* Optimized size */
+            width: auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4px 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .site-logo:hover {
+            transform: scale(1.05);
+            background: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 25px;
+            height: 2px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 180px 1.5rem 100px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        @media(min-width: 768px) {
+            .hero h1 { font-size: 4.5rem; }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-glow {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+        }
+
+        /* --- COMMON SECTIONS --- */
+        section {
+            padding: 80px 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- GRID & CARDS --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- TEAM SECTION --- */
+        .team-card {
+            text-align: center;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            border: 3px solid rgba(255,255,255,0.1);
+            font-weight: bold;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .role-tag {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 0.8rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: #fff;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #020617;
+            border-top: 1px solid var(--glass-border);
+            padding: 4rem 1.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #030712;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 3rem;
+                transition: 0.4s;
+                border-top: 1px solid var(--glass-border);
+            }
+
+            .nav-links.active { left: 0; }
+            
+            .contact-container { padding: 1.5rem; }
+            .footer-content { text-align: center; }
+            .footer-links a { justify-content: center; }
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <div class="logo">KRITIVEX</div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#work">Our Work</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <h1>We Build AI-Powered Apps, EdTech Platforms & Digital Solutions</h1>
-    <p>Kritivex Technologies helps students, schools, startups, and businesses go digital with secure, fast, and modern apps.</p>
-    <a href="#contact" class="btn-primary">Start Your Project</a>
-  </section>
+    <header>
+        <nav>
+            <a href="#home" class="logo-container">
+                <img src="logo.png" alt="Kritivex Logo" class="site-logo">
+            </a>
 
-  <!-- ABOUT KRITIVEX -->
-  <section id="about">
-    <h2 class="section-title">About Kritivex</h2>
-    <div class="card">
-      <p>
-        Kritivex Technologies is a modern EdTech and Software Development company dedicated to transforming learning and business through smart technology.
-        We develop AI-powered mobile apps, smart school systems, dashboards, websites, and automation tools that help students, schools, and businesses work faster and grow smarter.
-        Our mission is simple: <b>Make technology easy, accessible, and truly impactful for everyone.</b>
-      </p>
-    </div>
-  </section>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <h2 class="section-title">Our Services</h2>
-    <div class="grid">
-      <div class="card"><h3>AI & Automation</h3><p>Smart learning tools, AI models, chatbots, and intelligent systems.</p></div>
-      <div class="card"><h3>App Development</h3><p>Android, iOS, and cross-platform Flutter apps built for performance.</p></div>
-      <div class="card"><h3>Web Platforms</h3><p>Modern React dashboards, websites, admin portals, and school systems.</p></div>
-    </div>
-  </section>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
 
-  <!-- OUR WORK -->
-  <section id="work">
-    <h2 class="section-title">Our Work</h2>
-    <div class="grid">
-      <div class="card"><h3>Eduvex Student App</h3><p>AI-based learning app with quizzes, lessons, and progress tracking.</p></div>
-      <div class="card"><h3>School Management System</h3><p>Attendance, fees, homework, exams — everything in one platform.</p></div>
-      <div class="card"><h3>Business Automation Tools</h3><p>Custom tools for startups to manage workflow & digital operations.</p></div>
-    </div>
-  </section>
+    <section id="home" class="hero">
+        <h1>Empowering Schools with <br><span class="gradient-text">Next-Gen AI & Tech</span></h1>
+        <p>Kritivex Technologies bridges the gap between education and innovation. We build smarter apps and learning platforms for students in Grades 5-10.</p>
+        <a href="#contact" class="btn-glow">Start Innovation</a>
+    </section>
 
-  <!-- TEAM -->
-  <section id="team">
-    <h2 class="section-title">Meet Our Team</h2>
-    <div class="grid">
-      <div class="card"><h3>Mohit Raj — Founder & CEO</h3><p>Leads vision, innovation, and company strategy.</p></div>
-      <div class="card"><h3>Prince Kushwaha — Operations & Team Manager</h3><p>Manages full team workflow, project coordination & delivery.</p></div>
-      <div class="card"><h3>Vishal Yadav — Market Research & Social Media Lead</h3><p>Handles market insights, branding, and online presence.</p></div>
-      <div class="card"><h3>Ankit Kushwaha — Assistant</h3><p>Supports team operations, documentation, and coordination.</p></div>
-    </div>
-  </section>
+    <section id="services" class="reveal">
+        <div class="section-header">
+            <h2>Our Solutions</h2>
+            <p>Cutting-edge technology tailored for Education and Business growth.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box">🧠</div>
+                <h3>AI Learning Tools</h3>
+                <p>Personalized learning algorithms helping students understand complex topics easily with interactive AI.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">📱</div>
+                <h3>App Development</h3>
+                <p>High-performance Flutter & Native apps for Android & iOS. Beautiful UI with secure backend.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">🏫</div>
+                <h3>School Management</h3>
+                <p>Complete ERP systems: Attendance, Fees, Exams, and seamless Parent-Teacher communication portals.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">💻</div>
+                <h3>Web Platforms</h3>
+                <p>Modern, responsive websites and dashboards to manage your startup or institution's digital presence.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="section-title">Contact Us</h2>
-    <div class="contact-box">
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Message" required></textarea>
-        <button class="btn-primary" style="width:100%; border:none;">Send Message</button>
-      </form>
-    </div>
+    <section id="story" class="reveal">
+        <div class="section-header">
+            <h2>The Spark Behind <span class="gradient-text">Kritivex</span></h2>
+        </div>
+        <div class="contact-container" style="max-width: 900px; text-align: left;">
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                <div style="flex: 1; min-width: 250px; text-align: center;">
+                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: white; box-shadow: 0 0 30px rgba(99,102,241,0.4); font-family: 'Space Grotesk';">
+                        M
+                    </div>
+                    <h3 style="margin-top: 1rem; color: white; font-family: 'Space Grotesk';">Mohit Raj</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Founder & CEO</p>
+                </div>
 
-    <div class="contact-details">
-      <p style="margin:8px 0">Email: <a href="mailto:founder@kritivex.in">founder@kritivex.in</a></p>
-      <p style="margin:8px 0">Phone: <a href="tel:+919718854167">+91 9718854167</a></p>
-    </div>
-  </section>
+                <div style="flex: 2; min-width: 300px;">
+                    <h3 style="color: white; font-size: 1.6rem; margin-bottom: 1rem; font-family: 'Space Grotesk';">"Why are we still learning the old way?"</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 1rem; line-height: 1.8;">
+                        I often visited schools and spoke to students in <strong>Classes 5-10</strong>. I realized something worrying: while the world was moving towards AI and Robotics, these bright young minds lacked guidance and practical knowledge about modern technology.
+                    </p>
+                    <p style="color: #cbd5e1; margin-bottom: 1rem; line-height: 1.8;">
+                        That was the moment <strong>Kritivex</strong> was born.
+                    </p>
+                    <p style="color: #cbd5e1; line-height: 1.8;">
+                        We are not just a software company; we are on a mission to solve this problem. By partnering with schools and building easy-to-use educational apps, we ensure that every student gets the right guidance at the right time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <div style="max-width:1200px;margin:auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-      <div>© 2025 Kritivex Technologies</div>
-      <div style="color:#bdbdbd">Contact: <a href="mailto:founder@kritivex.in" style="color:inherit;text-decoration:underline">founder@kritivex.in</a> • <a href="tel:+919718854167" style="color:inherit;text-decoration:underline">+91 9718854167</a></div>
-    </div>
-  </footer>
+    <section id="team" class="reveal">
+        <div class="section-header">
+            <h2>Meet The Team</h2>
+            <p>The innovators behind Kritivex Technologies.</p>
+        </div>
+        <div class="grid">
+            <div class="card team-card">
+                <div class="team-avatar">M</div>
+                <h3>Mohit Raj</h3>
+                <span class="role-tag">Founder & CEO</span>
+            </div>
+            <div class="card team-card">
+                <div class="team-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">P</div>
+                <h3>Prince Kushwaha</h3>
+                <span class="role-tag">Team Lead & Ops</span>
+            </div>
+            <div class="card team-card">
+                <div class="team-avatar" style="background: linear-gradient(135deg, #3b82f6, #10b981);">V</div>
+                <h3>Vishal Yadav</h3>
+                <span class="role-tag">Marketing & Growth</span>
+            </div>
+            <div class="card team-card">
+                <div class="team-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">A</div>
+                <h3>Ankit Kushwaha</h3>
+                <span class="role-tag">Support & Coordinator</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Ready to transform your school or launch your idea?</p>
+        </div>
+        <div class="contact-container">
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-input" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-input" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="4" class="form-input" required placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="btn-glow" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+                <p id="status-message" style="margin-top: 1rem; display: none; color: #10b981; text-align: center; font-weight: 500;"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo-container" style="margin-bottom: 1rem;">
+                     <span style="font-size: 1.5rem; font-weight: bold; color: white; font-family: 'Space Grotesk';">KRITIVEX.</span>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    Innovating Education & Business with AI. <br>
+                    Bridging the gap for future generations.
+                </p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#team">Team</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="mailto:founder@kritivex.in">
+                            <span>📧</span> founder@kritivex.in
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+919718854167">
+                            <span>📞</span> +91 97188 54167
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"><span>📍</span> Surat, India</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <a href="#" style="font-size: 1.5rem; color: var(--text-muted);">🔗</a>
+                    <a href="#" style="font-size: 1.5rem; color: var(--text-muted);">📸</a>
+                    <a href="#" style="font-size: 1.5rem; color: var(--text-muted);">🐦</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kritivex Technologies. Founded by Mohit Raj.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Mobile Menu Toggle & Close on Click
+        const nav = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelectorAll('.nav-links li a');
+
+        function toggleMenu() {
+            nav.classList.toggle('active');
+            
+            // Hamburger Animation Logic
+            const bars = document.querySelectorAll('.bar');
+            if(nav.classList.contains('active')){
+                bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
+        }
+
+        // Auto close menu when link is clicked (Fix for mobile)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // 2. Scroll Reveal Animation
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 100; // Adjust for earlier/later reveal
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        reveal(); // Run once on load
+
+        // 3. Contact Form Handler (Web3Forms)
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const btn = document.getElementById('submitBtn');
+            const status = document.getElementById('status-message');
+            
+            const originalText = btn.innerText;
+            btn.innerText = "Sending...";
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+            
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    status.style.display = 'block';
+                    status.style.color = '#10b981';
+                    status.innerText = "Message sent successfully! We'll contact you soon.";
+                    form.reset();
+                } else {
+                    status.style.display = 'block';
+                    status.style.color = '#ef4444';
+                    status.innerText = "Something went wrong. Please try again.";
+                }
+            })
+            .catch(error => {
+                status.style.display = 'block';
+                status.style.color = '#ef4444';
+                status.innerText = "Error sending message. Check internet connection.";
+            })
+            .finally(() => {
+                btn.innerText = originalText;
+                btn.style.opacity = "1";
+                btn.disabled = false;
+                setTimeout(() => { status.style.display = 'none'; }, 5000);
+            });
+        }
+    </script>
 </body>
 </html>
