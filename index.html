@@ -118,6 +118,13 @@
       max-width: 500px;
       margin: auto;
     }
+    .contact-details {
+      max-width: 500px;
+      margin: 16px auto 0;
+      text-align: center;
+      color: var(--text-light);
+    }
+    .contact-details a { color: var(--white); text-decoration: none; font-weight:600 }
     input, textarea {
       width: 100%;
       padding: 12px;
@@ -133,6 +140,13 @@
       text-align: center;
       color: #c8c8c8;
       margin-top: 50px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 700px) {
+      .hero { padding-top: 140px }
+      .nav-links { display: none }
+      section { padding: 60px 16px }
     }
   </style>
 </head>
@@ -212,10 +226,18 @@
         <button class="btn-primary" style="width:100%; border:none;">Send Message</button>
       </form>
     </div>
+
+    <div class="contact-details">
+      <p style="margin:8px 0">Email: <a href="mailto:founder@kritivex.in">founder@kritivex.in</a></p>
+      <p style="margin:8px 0">Phone: <a href="tel:+919718854167">+91 9718854167</a></p>
+    </div>
   </section>
 
   <footer>
-    © 2025 Kritivex Technologies. All Rights Reserved.
+    <div style="max-width:1200px;margin:auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div>© 2025 Kritivex Technologies</div>
+      <div style="color:#bdbdbd">Contact: <a href="mailto:founder@kritivex.in" style="color:inherit;text-decoration:underline">founder@kritivex.in</a> • <a href="tel:+919718854167" style="color:inherit;text-decoration:underline">+91 9718854167</a></div>
+    </div>
   </footer>
 </body>
 </html>
